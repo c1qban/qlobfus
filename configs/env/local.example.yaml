@@ -1,0 +1,10 @@
+{
+  "job_name": "local_env_defaults",
+  "environment": {
+    "sandboxed_execution": true,
+    "compiler": "clang",
+    "llvm_opt": "opt",
+    "parallel_workers": 4
+  }
+}
+

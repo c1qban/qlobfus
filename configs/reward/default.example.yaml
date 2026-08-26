@@ -1,0 +1,13 @@
+{
+  "job_name": "default_reward_profile",
+  "reward": {
+    "semantic_gate": 0.97,
+    "compile_fail_penalty": -5.0,
+    "semantic_fail_penalty": -3.0,
+    "security_weight": 1.0,
+    "potency_weight": 0.4,
+    "cost_weight": 0.3,
+    "diversity_weight": 0.1,
+    "signature_penalty_weight": 0.1
+  }
+}

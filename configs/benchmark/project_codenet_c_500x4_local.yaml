@@ -1,0 +1,18 @@
+{
+  "job_name": "project_codenet_c_500x4_local",
+  "source_root": "data/Project_CodeNet",
+  "data_root": "data/Project_CodeNet/data",
+  "metadata_root": "data/Project_CodeNet/metadata",
+  "problem_descriptions_root": "data/Project_CodeNet/problem_descriptions",
+  "output_root": "data/raw/project_codenet_c_500x4",
+  "problem_count": 500,
+  "samples_per_problem": 4,
+  "language_dir": "C",
+  "language_values": ["C"],
+  "filename_ext": "c",
+  "accepted_values": ["Accepted", "AC"],
+  "min_lines": 5,
+  "max_lines": 400,
+  "copy_problem_descriptions": true,
+  "clear_output_root": true
+}

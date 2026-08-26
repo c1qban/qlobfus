@@ -1,0 +1,53 @@
+{
+  "job_name": "mppo_c_ir_smoke",
+  "environment": {
+    "id": "obfuscation-env-v0",
+    "max_steps": 8,
+    "parallel_envs": 1,
+    "semantic_threshold": 0.97
+  },
+  "policy": {
+    "algorithm": "maskable_ppo",
+    "hierarchical": true,
+    "state_encoder": "ast_cfg_ir_mlp",
+    "action_masking": true
+  },
+  "reward": {
+    "semantic_gate": 0.97,
+    "security_weight": 1.0,
+    "potency_weight": 0.4,
+    "cost_weight": 0.3,
+    "diversity_weight": 0.1
+  },
+  "training": {
+    "execution_mode": "auto",
+    "total_timesteps": 32,
+    "n_steps": 8,
+    "batch_size": 8,
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "device": "auto",
+    "seed": 7,
+    "verbose": 0,
+    "checkpoint_selection": {
+      "metric_name": "semantic+potency+llvm_coverage+branch_rewrite+ir_delta+verifier-cost",
+      "semantic_weight": 0.35,
+      "potency_weight": 0.20,
+      "llvm_block_weight": 0.15,
+      "branch_rewrite_weight": 0.10,
+      "ir_delta_weight": 0.10,
+      "verifier_weight": 0.15,
+      "cost_weight": 0.05
+    },
+    "periodic_evaluation": {
+      "enabled": true,
+      "every_n_episodes": 1,
+      "benchmark": {
+        "name": "training_periodic_eval",
+        "datasets": ["train"]
+      },
+      "metrics": ["semantic", "potency", "cost", "resilience", "llvm_ir"]
+    },
+    "run_root": "runs"
+  }
+}

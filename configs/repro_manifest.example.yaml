@@ -1,0 +1,37 @@
+project:
+  name: rl-obfuscator
+  scope: defensive-research
+  target_language: c
+  ir: llvm-ir
+
+environment:
+  os: ubuntu-lts
+  python: "3.x"
+  llvm_clang: "pinned"
+  pytorch: "pinned"
+  pyg: "pinned"
+  stable_baselines3: "pinned"
+  sb3_contrib: "pinned"
+
+toolchain:
+  tree_sitter: "pinned"
+  joern: "pinned"
+  tigress: "pinned"
+  obfuscator_llvm: "pinned"
+  klee: "pinned"
+  alive2: "pinned"
+  angr: "pinned"
+  z3: "pinned"
+
+datasets:
+  train:
+    - project-codenet-c
+  security_eval:
+    - juliet
+    - devign
+    - primevul
+
+notes:
+  - Replace all placeholder versions with exact releases or commit hashes.
+  - Record dataset split strategy to avoid project-level leakage.
+  - Keep this file synchronized with Docker and experiment configs.

@@ -1,0 +1,21 @@
+{
+  "job_name": "fe150_baselines",
+  "run_root": "artifacts/formal_eval_150_harness_clean",
+  "split_index_path": "data/processed/project_codenet_c_500x4_strict/splits/formal_eval_150_harness_clean.index.json",
+  "methods": ["random", "rule_based"],
+  "max_steps": 3,
+  "semantic_threshold": 0.97,
+  "reward": {
+    "weights": {
+      "semantic": 0.55,
+      "potency": 0.25,
+      "coverage": 0.10,
+      "stealth": 0.10
+    }
+  },
+  "selection_score": {
+    "semantic_weight": 0.70,
+    "potency_weight": 0.20,
+    "llvm_weight": 0.10
+  }
+}

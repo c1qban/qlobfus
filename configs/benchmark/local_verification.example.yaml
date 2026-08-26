@@ -1,0 +1,27 @@
+{
+  "job_name": "local_verification_eval",
+  "benchmark": {
+    "name": "local-verification-smoke",
+    "datasets": ["smoke"],
+    "splits": ["local"]
+  },
+  "metrics": ["semantic"],
+  "verification": {
+    "source_path": "data/raw/smoke/sum_stdin.c",
+    "test_cases": [
+      {
+        "name": "adds_small_numbers",
+        "input_data": "1 2\n",
+        "expected_stdout": "3\n",
+        "expected_returncode": 0
+      },
+      {
+        "name": "adds_negative_number",
+        "input_data": "10 -3\n",
+        "expected_stdout": "7\n",
+        "expected_returncode": 0
+      }
+    ]
+  }
+}
+

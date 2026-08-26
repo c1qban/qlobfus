@@ -1,0 +1,43 @@
+{
+  "job_name": "project_codenet_c_100x4_formal_eval_30_v2_tigress_baseline",
+  "run_root": "artifacts/formal_eval_30_v2",
+  "split_index_path": "data/processed/project_codenet_c_100x4_strict/splits/formal_eval_30_v2.index.json",
+  "environment": {
+    "semantic_threshold": 0.97,
+    "verification": {
+      "fuzz_enabled": true,
+      "fuzz_max_cases": 16
+    }
+  },
+  "reward": {
+    "semantic_gate": 0.97,
+    "security_weight": 1.0,
+    "potency_weight": 0.4,
+    "cost_weight": 0.3,
+    "diversity_weight": 0.1,
+    "llvm_block_weight": 0.15,
+    "branch_rewrite_weight": 0.1,
+    "ir_delta_weight": 0.15
+  },
+  "baselines": {
+    "selected": ["tigress"],
+    "tigress": {
+      "tool_path": "wsl",
+      "tigress_home": "tigress/4.0.11",
+      "sample_limit": 30,
+      "timeout_sec": 60.0,
+      "command_template": [
+        "{tool}",
+        "bash",
+        "-lc",
+        "export TIGRESS_HOME='{tigress_home_posix}'; cd '{workdir_posix}'; '{tigress_home_posix}/tigress' --Transform=Flatten --Functions=main '{input_posix}' --out='{output_posix}'"
+      ],
+      "verification_command_template": [
+        "{tool}",
+        "bash",
+        "-lc",
+        "cd '{workdir_posix}'; gcc '{verify_source_posix}' -lm -o '{verify_executable_posix}'"
+      ]
+    }
+  }
+}

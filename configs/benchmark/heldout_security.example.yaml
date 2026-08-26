@@ -1,0 +1,15 @@
+{
+  "job_name": "heldout_security_eval",
+  "benchmark": {
+    "name": "heldout-security",
+    "datasets": ["juliet", "devign", "primevul"],
+    "splits": ["validation", "test"]
+  },
+  "metrics": ["semantic", "potency", "resilience", "cost", "llm_eval"],
+  "evaluation": {
+    "symbolic_tools": ["klee", "angr"],
+    "llm_eval_enabled": true,
+    "max_cases_per_dataset": 100
+  }
+}
+

@@ -1,0 +1,35 @@
+{
+  "job_name": "c_algorithms",
+  "dataset": {
+    "name": "c-algorithms",
+    "language": "c",
+    "layout": "generic_recursive",
+    "source_root": "data/raw/c-algorithms",
+    "processed_root": "data/processed/c_algorithms",
+    "manifest_path": "data/manifests/c_algorithms.manifest.json",
+    "file_patterns": ["*.c"]
+  },
+  "split": {
+    "strategy": "hash_random",
+    "seed": "c_algorithms_v1",
+    "train_ratio": 0.8,
+    "validation_ratio": 0.1,
+    "test_ratio": 0.1
+  },
+  "filters": {
+    "min_lines": 20,
+    "max_lines": 2000,
+    "require_compilable": true
+  },
+  "verification": {
+    "compile": {
+      "compiler": "C:\\Program Files\\LLVM\\bin\\clang.exe",
+      "compiler_flags": ["-O0", "-c"],
+      "timeout_sec": 15.0
+    },
+    "harness": {
+      "format": "executable_stdio_v1"
+    }
+  },
+  "preview_limit": 20
+}

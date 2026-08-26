@@ -1,0 +1,70 @@
+{
+  "job_name": "fe150_mppo_seed7",
+  "environment": {
+    "id": "obfuscation-env-v0",
+    "max_steps": 8,
+    "parallel_envs": 1,
+    "semantic_threshold": 0.97,
+    "action_safety": {
+      "enabled": true,
+      "filter_risky_actions": true,
+      "max_allowed_risk": 0.7,
+      "penalize_bulk_without_harness": true,
+      "penalize_unmapped_llvm": false,
+      "blocked_risk_levels": ["high"],
+      "blocked_parameter_tags": ["neg_add"]
+    },
+    "verification": {
+      "fuzz_enabled": true,
+      "fuzz_max_cases": 16
+    }
+  },
+  "policy": {
+    "algorithm": "maskable_ppo",
+    "hierarchical": true,
+    "state_encoder": "ast_cfg_ir_mlp",
+    "action_masking": true
+  },
+  "reward": {
+    "semantic_gate": 0.97,
+    "security_weight": 1.0,
+    "potency_weight": 0.4,
+    "cost_weight": 0.3,
+    "diversity_weight": 0.1,
+    "llvm_block_weight": 0.15,
+    "branch_rewrite_weight": 0.1,
+    "ir_delta_weight": 0.15
+  },
+  "training": {
+    "execution_mode": "auto",
+    "split_index_path": "data/processed/project_codenet_c_500x4_strict/splits/formal_eval_150_harness_clean.index.json",
+    "total_timesteps": 288,
+    "n_steps": 32,
+    "batch_size": 32,
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "device": "auto",
+    "seed": 7,
+    "verbose": 0,
+    "checkpoint_selection": {
+      "metric_name": "semantic+potency+llvm_coverage+branch_rewrite+ir_delta+verifier-cost",
+      "semantic_weight": 0.35,
+      "potency_weight": 0.20,
+      "llvm_block_weight": 0.15,
+      "branch_rewrite_weight": 0.10,
+      "ir_delta_weight": 0.10,
+      "verifier_weight": 0.15,
+      "cost_weight": 0.05
+    },
+    "periodic_evaluation": {
+      "enabled": false,
+      "every_n_episodes": 10,
+      "benchmark": {
+        "name": "project_codenet_c_500x4_formal_eval_150_harness_clean_periodic_eval",
+        "datasets": ["formal_eval_150_harness_clean"]
+      },
+      "metrics": ["semantic", "potency", "cost", "resilience", "llvm_ir"]
+    },
+    "run_root": "artifacts/formal_eval_150_harness_clean/multiseed"
+  }
+}

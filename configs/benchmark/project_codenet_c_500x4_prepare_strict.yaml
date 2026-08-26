@@ -1,0 +1,49 @@
+{
+  "job_name": "project_codenet_c_500x4_prepare_strict",
+  "dataset": {
+    "name": "project-codenet-c-500x4",
+    "language": "c",
+    "layout": "project_codenet",
+    "source_root": "data/raw/project_codenet_c_500x4/data",
+    "metadata_csv": "data/raw/project_codenet_c_500x4/metadata",
+    "metadata_key_field": "submission_id",
+    "metadata_lookup": "submission_id",
+    "metadata_glob": "p*.csv",
+    "language_dirs": ["C"],
+    "sample_id_template": "{problem_id}/{submission_id}",
+    "processed_root": "data/processed/project_codenet_c_500x4_strict",
+    "manifest_path": "data/manifests/project_codenet_c_500x4_strict.manifest.json",
+    "file_patterns": ["*.c"]
+  },
+  "split": {
+    "strategy": "project_holdout",
+    "seed": "project_codenet_c_500x4_v1",
+    "train_ratio": 0.8,
+    "validation_ratio": 0.1,
+    "test_ratio": 0.1
+  },
+  "filters": {
+    "min_lines": 5,
+    "max_lines": 400,
+    "accepted_only": true,
+    "metadata_status_field": "status",
+    "accepted_values": ["Accepted", "AC"],
+    "require_compilable": true,
+    "require_harness_pass": true,
+    "harness_semantic_threshold": 0.97
+  },
+  "verification": {
+    "compile": {
+      "compiler": "C:\\Program Files\\LLVM\\bin\\clang.exe",
+      "compiler_flags": ["-O0"],
+      "timeout_sec": 15.0
+    },
+    "harness": {
+      "format": "executable_stdio_v1",
+      "harness_root": "data/harness/project_codenet_c_500x4",
+      "filename_suffix": ".tests.json",
+      "inline_test_cases_in_manifest": true
+    }
+  },
+  "preview_limit": 20
+}

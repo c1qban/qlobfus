@@ -1,0 +1,36 @@
+{
+  "job_name": "smoke_dataset",
+  "dataset": {
+    "name": "smoke-c",
+    "language": "c",
+    "source_root": "data/raw/smoke",
+    "processed_root": "data/processed/smoke_dataset",
+    "manifest_path": "data/manifests/smoke_dataset.manifest.json",
+    "file_patterns": ["*.c"]
+  },
+  "split": {
+    "strategy": "single_bucket",
+    "train_ratio": 1.0,
+    "validation_ratio": 0.0,
+    "test_ratio": 0.0
+  },
+  "filters": {
+    "min_lines": 1,
+    "max_lines": 100,
+    "require_compilable": true
+  },
+  "verification": {
+    "compile": {
+      "compiler": null,
+      "compiler_flags": ["-O0"],
+      "timeout_sec": 10.0
+    },
+    "harness": {
+      "format": "executable_stdio_v1",
+      "harness_root": "data/harness/smoke",
+      "filename_suffix": ".tests.json",
+      "inline_test_cases_in_manifest": true
+    }
+  },
+  "preview_limit": 10
+}

@@ -1,0 +1,14 @@
+{
+  "job_name": "local_verification_from_manifest",
+  "benchmark": {
+    "name": "local-verification-from-manifest",
+    "datasets": ["smoke"],
+    "splits": ["local"]
+  },
+  "metrics": ["semantic"],
+  "verification": {
+    "manifest_path": "data/manifests/smoke_dataset.manifest.json",
+    "sample_id": "sum_stdin"
+  }
+}
+

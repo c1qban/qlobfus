@@ -14,9 +14,6 @@ QLObfus models source-level C obfuscation as a constrained sequential decision p
 - `scripts/`: input preparation, training, evaluation, baselines, summaries, and paper-support utilities.
 - `configs/`: benchmark, policy, reward, and experiment configurations used by the artifact.
 - `tests/`: unit and integration tests for the research pipeline.
-- `docs/`: paper draft and supporting research notes intended for public release.
-
-See `REPRODUCIBILITY.md` for the recommended experiment workflow.
 
 ## Requirements
 

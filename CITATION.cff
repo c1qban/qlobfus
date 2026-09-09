@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software artifact, please cite the associated paper and repository."
-title: "Verification-Constrained Reinforcement Learning for Semantics-Preserving Code Obfuscation"
+title: "Semantics-Preserving Code Obfuscation with Reinforcement Learning"
 type: software
 authors:
   - family-names: "Zhuerkageer"
@@ -9,10 +9,13 @@ repository-code: "https://github.com/c1qban/qlobfus"
 abstract: "A research artifact for learning semantics-preserving C source obfuscation decisions with dynamic action masking, verifier-in-the-loop feedback, and LLVM-aware metrics."
 keywords:
   - code obfuscation
-  - reinforcement learning
-  - Maskable PPO
   - semantic preservation
-  - LLVM
+  - reinforcement learning
+  - program verification
+  - dynamic action masking
+  - Maskable Proximal Policy Optimization
+  - program analysis
+  - software protection.
 license: MIT
 version: "1.0.0"
 date-released: "2026-08-04"

@@ -1,6 +1,6 @@
-# Verification-Constrained Reinforcement Learning for Semantics-Preserving Code Obfuscation
+# Semantics-Preserving Code Obfuscation with Reinforcement Learning
 
-This repository contains the research artifact for **Verification-Constrained Reinforcement Learning for Semantics-Preserving Code Obfuscation**.
+This repository contains the research artifact for **Semantics-Preserving Code Obfuscation with Reinforcement Learning**.
 
 QLObfus models source-level C obfuscation as a constrained sequential decision problem. A policy chooses an obfuscation operator, a concrete program location, and a parameterization; each step is checked by compilation, executable test harnesses, differential execution, and lightweight fuzzing. The system compares learned policies against internal random/rule-based baselines and an optional Tigress baseline.
 

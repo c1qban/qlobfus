@@ -4,7 +4,7 @@ This repository is a research prototype for C source transformation and empirica
 
 ## Supported Versions
 
-Security-relevant reports should target the latest tagged paper-artifact release or the current default branch.
+Security-relevant reports should target the latest release or the current `main` branch.
 
 ## Reporting a Vulnerability
 

@@ -5,6 +5,7 @@ type: software
 authors:
   - family-names: "Zhuerkageer"
     given-names: "Kuerbanjiang"
+    affiliation: "Chengdu University of Information Technology"
 repository-code: "https://github.com/c1qban/qlobfus"
 abstract: |-
   Code obfuscation aims to impede program analysis and reverse engineering while preserving program behavior. However, fixed transformation strategies have difficulty adapting to varying program structures, which may result in ineffective edits, compilation failures, or behavioral deviations. This paper proposes a verification-guided reinforcement learning framework that formulates C source-code obfuscation as a semantics-constrained sequential decision-making problem. First, location-specific candidate transformations are generated through program analysis. Then, risk filtering and dynamic action masking are used to exclude inapplicable candidates. On this basis, a Maskable Proximal Policy Optimization (Maskable PPO) agent is used to learn to select transformation operations, target locations, parameters, and application order. During training, each selected transformation is sequentially subjected to compilation checks, fixed test execution, differential testing, and fuzz testing to assess its semantic preservation, and the verification results are used as reward signals to guide policy updates. On a test set of 1,352 C programs from Project CodeNet, all generated obfuscated programs compiled successfully, and 1,326 programs passed all semantic validation tests, with a semantic preservation rate of 98.08%. Under the same transformation operations, budget, semantic threshold, and risk rules, the proposed policy achieved a transformation coverage rate of 91.57% and an average composite structural-change score of 0.9007, outperforming both the random and rule-based strategies. Compared with the Flatten transformation of the existing obfuscation tool Tigress, the proposed framework induces slightly smaller structural changes but achieves higher completion and semantic preservation rates. Cross-compiler testing further demonstrates that the proposed method has good compatibility. The above results indicate that combining dynamic action masking with step-wise semantic verification enables reinforcement learning policies to more stably filter and retain effective transformations in a state-dependent obfuscation space, thus providing a practical decision-making mechanism for semantics-preserving source-code obfuscation.
@@ -16,7 +17,7 @@ keywords:
   - dynamic action masking
   - Maskable Proximal Policy Optimization
   - program analysis
-  - software protection.
+  - software protection
 license: MIT
 version: "1.0.0"
-date-released: "2026-08-04"
+date-released: "2026-09-10"

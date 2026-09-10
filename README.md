@@ -83,7 +83,7 @@ python -m api.cli run-baselines --config configs/benchmark/baselines_smoke.examp
 
 The main paper protocol uses Project CodeNet C programs with problem-level holdout splits, harness-clean filtering, multi-seed Maskable PPO training, frozen checkpoint evaluation, internal baselines, optional Tigress baselines, cross-compiler validation, deobfuscation attacks, and summary generation.
 
-Start with `REPRODUCIBILITY.md`, then inspect:
+The workflow is driven by the commands below and the following configs; inspect:
 
 - `configs/experiments/protocol_v5_mppo_seed1.yaml`
 - `configs/experiments/protocol_v5_final_test_internal_baselines.yaml`
